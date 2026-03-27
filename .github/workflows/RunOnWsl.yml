@@ -2,11 +2,6 @@ name: Run Python Script
 
 on:
   workflow_dispatch:
-    inputs:
-      args:
-        description: "Arguments to pass to the script (optional)"
-        required: false
-        default: ""
 
 jobs:
   run-script:
@@ -14,11 +9,7 @@ jobs:
 
     steps:
       - name: Run Python script in WSL
-        shell: wsl-bash {0}
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.COMPARE_GITHUB_TOKEN }}
+        shell: powershell
         run: |
-          cd \\wsl.localhost\Ubuntu-22.04\home\ubuntu\src\SDS2Prod-sds2\install_src
-          python build_release.py
+          wsl.exe -- bash -lc 'chmod +x /home/ubuntu/src/SDS2Prod-sds2/install_src/echo.sh && /home/ubuntu/src/SDS2Prod-sds2/install_src/build_release.py'
  
