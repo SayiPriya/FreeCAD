@@ -11,5 +11,5 @@ jobs:
       - name: Run Python script in WSL
         shell: powershell
         run: |
-          wsl.exe -- bash -lc 'chmod +x /home/ubuntu/src/SDS2Prod-sds2/install_src/echo.sh && /home/ubuntu/src/SDS2Prod-sds2/install_src/build_release.py'
+          wsl.exe -- bash -lc 'chmod +x /home/ubuntu/src/SDS2Prod-sds2/install_src/build_release.py && /home/ubuntu/src/SDS2Prod-sds2/install_src/build_release.py'
  
